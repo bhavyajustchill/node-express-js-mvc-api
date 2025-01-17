@@ -8,6 +8,7 @@ const {
   internalServerErrorMiddleware,
 } = require("./middlewares/errors.middleware");
 const todoRoutes = require("./routes/todo.route");
+const userRoutes = require("./routes/user.route");
 const paymentRoutes = require("./routes/payment.route");
 
 const app = express();
@@ -24,6 +25,7 @@ app.get("/", (req, res) => {
   return res.status(200).json({ message: "API is Live" });
 });
 app.use("/todo", todoRoutes);
+app.use("/auth", userRoutes);
 app.use("/payment", paymentRoutes);
 
 // Middleware
